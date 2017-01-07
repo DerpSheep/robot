@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/mesh">
+        <file>teapot.obj</file>
+    </qresource>
+    <qresource prefix="/textures"/>
+</RCC>

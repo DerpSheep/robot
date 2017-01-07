@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Window</class>
+ <widget class="QDialog" name="Window">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>432</width>
+    <height>476</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Raspberry Pi Robot Control</string>
+  </property>
+  <widget class="QRadioButton" name="AIControlToggle">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>30</y>
+     <width>82</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>AI Control</string>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QSlider" name="AIMotorSpeedSlider">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>70</y>
+     <width>171</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>100</number>
+   </property>
+   <property name="value">
+    <number>50</number>
+   </property>
+   <property name="sliderPosition">
+    <number>50</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="tickPosition">
+    <enum>QSlider::TicksBelow</enum>
+   </property>
+   <property name="tickInterval">
+    <number>10</number>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="ManualControlToggle">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>120</y>
+     <width>91</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Manual Control</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="AIStatusLabel">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>90</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:600;&quot;&gt;AI Status&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QSlider" name="ManualMotorSpeedSlider">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>160</y>
+     <width>171</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>100</number>
+   </property>
+   <property name="singleStep">
+    <number>1</number>
+   </property>
+   <property name="value">
+    <number>50</number>
+   </property>
+   <property name="sliderPosition">
+    <number>50</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="tickPosition">
+    <enum>QSlider::TicksBelow</enum>
+   </property>
+   <property name="tickInterval">
+    <number>10</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="ManualMotorSpeedLabel">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>140</y>
+     <width>61</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Motor Speed</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="AIMotorSpeedLabel">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>50</y>
+     <width>61</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Motor Speed</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="AIStateLabel">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>110</y>
+     <width>81</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>State: Disabled</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="AITaskLabel">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>130</y>
+     <width>51</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Task: Idle</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="Pin1Selector">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>370</y>
+     <width>69</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>OFF</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>LOW</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>HIGH</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="Pin1Label">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>350</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Pin 1 (Output)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Pin2Label">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>350</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Pin 2 (Output)</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="Pin2Selector">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>370</y>
+     <width>69</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>OFF</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>LOW</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>HIGH</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="Pin3Label">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>350</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Pin 3 (Output)</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="Pin3Selector">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>370</y>
+     <width>69</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>OFF</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>LOW</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>HIGH</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="Pin4Label">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>350</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Pin 4 (Output)</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="Pin4Selector">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>370</y>
+     <width>69</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>OFF</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>LOW</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>HIGH</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="Pin5Label">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>350</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Pin 5 (Output)</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="Pin5Selector">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>370</y>
+     <width>69</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>OFF</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>LOW</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>HIGH</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="GPIOInfoLabel">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>400</y>
+     <width>401</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>HIGH = 3.3V     LOW = 0V     PULLUP = 10K to 3.3V     PULLDOWN = 10K to Ground</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Pin6Label">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>420</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Pin 6 (Input)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Pin10Label">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>420</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Pin 10 (Input)</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="Pin10Selector">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>440</y>
+     <width>69</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>OFF</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>PULLUP</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>PULLDOWN</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="Pin7Label">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>420</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Pin 7 (Input)</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="Pin7Selector">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>440</y>
+     <width>69</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>OFF</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>PULLUP</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>PULLDOWN</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QComboBox" name="Pin8Selector">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>440</y>
+     <width>69</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>OFF</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>PULLUP</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>PULLDOWN</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="Pin8Label">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>420</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Pin 8 (Input)</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="Pin9Selector">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>440</y>
+     <width>69</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>OFF</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>PULLUP</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>PULLDOWN</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QComboBox" name="Pin6Selector">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>440</y>
+     <width>69</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>OFF</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>PULLUP</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>PULLDOWN</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="Pin9Label">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>420</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Pin 9 (Input)</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="GPIODelaySelector">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>320</y>
+     <width>71</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>1ms</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>5ms</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>10ms</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="GPIOUpdateToggle">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>320</y>
+     <width>131</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Manual GPIO Update Delay</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="ManualGPIOToggle">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>320</y>
+     <width>81</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Manual GPIO</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ManualForward">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>190</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Forward</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ManualTurnRight">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>220</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Turn Right</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ManualBackward">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>250</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Backward</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ManualTurnLeft">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>220</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Turn Left</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="ManualUseArrowKeys">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>280</y>
+     <width>101</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Use arrow keys</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="ManualMotorSpeedIndicator">
+   <property name="geometry">
+    <rect>
+     <x>186</x>
+     <y>160</y>
+     <width>51</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>157 RPM</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="AIMotorSpeedIndicator">
+   <property name="geometry">
+    <rect>
+     <x>186</x>
+     <y>70</y>
+     <width>51</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>157 RPM</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="RobotViewButton">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>220</y>
+     <width>111</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Show Robot View</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
